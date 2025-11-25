@@ -68,13 +68,15 @@
         box-shadow: 0 8px 20px rgba(15, 23, 42, 0.7);
       }
 
+      /* 手機優先：導覽列改成上下堆疊，避免 320px 產生水平捲動 */
       .nav {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
         padding-top: 0.75rem;
         padding-bottom: 0.75rem;
-        gap: 1.5rem;
+        gap: 0.5rem;
       }
 
       .nav-logo {
@@ -82,19 +84,19 @@
         font-weight: 600;
         letter-spacing: 0.03em;
         color: #f9fafb;
-        white-space: nowrap;
+        white-space: normal;
       }
 
       .nav-menu {
-        flex-shrink: 0;
+        width: 100%;
       }
 
       .nav-list {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        justify-content: flex-end;
-        gap: 0.75rem;
+        justify-content: flex-start;
+        gap: 0.5rem 0.75rem;
         margin: 0;
         padding: 0;
         list-style: none;
@@ -269,6 +271,21 @@
 
       /* CSS:RWD-START */
       @media (min-width: 768px) {
+        .nav {
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          gap: 1.5rem;
+        }
+
+        .nav-menu {
+          width: auto;
+        }
+
+        .nav-logo {
+          white-space: nowrap;
+        }
+
         .nav-list {
           gap: 1rem;
           font-size: 0.9rem;
